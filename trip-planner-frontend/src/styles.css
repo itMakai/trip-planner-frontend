@@ -1,0 +1,12 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+  
+  .leaflet-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+  }
