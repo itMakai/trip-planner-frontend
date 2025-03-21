@@ -10,7 +10,9 @@ function EldLogsTable({ logs }) {
       if (!canvas) return;
 
       const ctx = canvas.getContext('2d');
-      const width = canvas.width;
+      const containerWidth = canvas.parentElement.clientWidth; // Get the parent container's width
+      const width = Math.min(containerWidth, 880); // Use the smaller of the container width or 880
+      canvas.width = width; // Set canvas width dynamically
       const height = canvas.height;
 
       // Clear canvas
@@ -141,15 +143,15 @@ function EldLogsTable({ logs }) {
 
           ctx.beginPath();
           ctx.moveTo(prevEndX, prevY);
-          ctx.lineTo(prevEndX, prevY + (y - prevY) / 2); // Halfway vertically
-          ctx.lineTo(startX, prevY + (y - prevY) / 2); // Horizontal across
-          ctx.lineTo(startX, y); // Up/Down to the next activity
-          ctx.strokeStyle = colors[lastActivity.type] || 'gray'; // Color matches the starting activity
+          ctx.lineTo(prevEndX, prevY + (y - prevY) / 2);
+          ctx.lineTo(startX, prevY + (y - prevY) / 2);
+          ctx.lineTo(startX, y);
+          ctx.strokeStyle = colors[lastActivity.type] || 'gray';
           ctx.lineWidth = 2;
           ctx.stroke();
         }
 
-        // Transition line within the same activity type (same as before)
+        // Transition line within the same activity type
         if (lastActivity && lastActivity.type === activity.type) {
           const prevEndX = labelWidth + lastActivity.end * pixelsPerHour;
           ctx.beginPath();
@@ -199,9 +201,9 @@ function EldLogsTable({ logs }) {
           </Typography>
           <canvas
             ref={(el) => (canvasRefs.current[index] = el)}
-            width={880}
+            width={880} // This will be overridden by the useEffect
             height={240}
-            style={{ border: '1px solid #ccc' }}
+            style={{ border: '1px solid #ccc', maxWidth: '100%' }} // Ensure canvas doesn't exceed container
           />
         </Box>
       ))}

@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import TripForm from '../components/TripForm';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Button, Container } from '@mui/material';
 
-function HomePage() {
+function LandingPage() {
   const navigate = useNavigate();
 
-  const handleTripSubmit = (tripId) => {
-    navigate(`/results/${tripId}`);
+  const handlePlanTrip = () => {
+    navigate('/plan-trip');
   };
 
   return (
@@ -42,7 +41,7 @@ function HomePage() {
 
       <Container maxWidth="lg">
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 4 }}>
-          {/* Left Section: Text */}
+          {/* Left Section: Text and Button */}
           <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' } }}>
             <Typography
               variant="h2"
@@ -62,26 +61,53 @@ function HomePage() {
               Discover the best routes and schedules with Trip Planner’s smart technology.
               Start your journey today and make every mile count!
             </Typography>
-          </Box>
-
-          {/* Right Section: Trip Form */}
-          <Box sx={{ flex: 1, width: '100%', maxWidth: 500 }}>
-            <Box
+            <Button
+              variant="contained"
+              onClick={handlePlanTrip}
               sx={{
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                backgroundColor: '#32CD32',
+                color: 'white',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                px: 4,
+                py: 1.5,
                 borderRadius: 2,
-                p: 3,
-                color: '#1a3c34',
-                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+                '&:hover': { backgroundColor: '#28a428' },
               }}
             >
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}>
-                Plan Your Trip
-              </Typography>
-              <Typography variant="subtitle1" sx={{ mb: 3, color: '#555', textAlign: 'center' }}>
-                Enter your trip details to get started
-              </Typography>
-              <TripForm onTripCreated={handleTripSubmit} />
+              Plan Your Trip Now
+            </Button>
+            {/* App Store Buttons */}
+            <Box sx={{ mt: 4, display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 2 }}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                alt="App Store"
+                style={{ height: 40 }}
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Google Play"
+                style={{ height: 40 }}
+              />
+            </Box>
+          </Box>
+
+          {/* Right Section: Phone Mockup (Removed for Now) */}
+          <Box sx={{ flex: 1, display: { xs: 'none', md: 'block' } }}>
+            {/* Placeholder for phone mockup */}
+            <Box
+              sx={{
+                width: 300,
+                height: 500,
+                backgroundColor: '#e0e0e0',
+                borderRadius: 4,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#666',
+              }}
+            >
+              <Typography>Phone Mockup Placeholder</Typography>
             </Box>
           </Box>
         </Box>
@@ -90,4 +116,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default LandingPage;
