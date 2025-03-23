@@ -49,7 +49,7 @@ function HomePage() {
               variant="h2"
               sx={{
                 fontWeight: 'bold',
-                fontSize: { xs: '2.5rem', md: '4rem' },
+                fontSize: { xs: '2.0rem', md: '3rem' },
                 mb: 3,
                 textTransform: 'uppercase',
                 color: '#FFD700',
@@ -61,12 +61,12 @@ function HomePage() {
               variant="h5"
               sx={{
                 mb: 4,
-                fontSize: { xs: '1.2rem', md: '1.5rem' },
+                fontSize: { xs: '1rem', md: '1.2rem' },
                 color: '#b0e0e6',
                 maxWidth: 600,
               }}
             >
-              Discover the best routes and schedules with Trip Planner’s smart technology. Start your journey today and make every mile count!
+              Discover the best routes and schedules with Trip Planner’s smart technology. Start your journey today and make every mile count! I.e Location: New York, Boston, Dever, CO, etc.
             </Typography>
           </Box>
 
