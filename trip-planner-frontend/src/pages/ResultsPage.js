@@ -20,7 +20,7 @@ function ResultsPage() {
         setLoading(true);
         setError(null);
         setIsNetworkError(false);
-        const response = await axios.get(`http://127.0.0.1:8000/api/trips/${tripId}/calculate_route/`, config);
+        const response = await axios.get(`https://eld-log-generator.onrender.com/api/trips/${tripId}/calculate_route/`, config);
         setRouteData(response.data.route);
         setEldLogs(response.data.eld_logs);
         console.log('Route Data:', response.data.route); // Debug route data
@@ -44,7 +44,7 @@ function ResultsPage() {
     try {
       setError(null);
       setIsNetworkError(false);
-      const response = await axios.get(`http://127.0.0.1:8000/api/trips/${tripId}/download_eld_logs/`, config);
+      const response = await axios.get(`https://eld-log-generator.onrender.com/api/trips/${tripId}/download_eld_logs/`, config);
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
@@ -68,7 +68,7 @@ function ResultsPage() {
         setLoading(true);
         setError(null);
         setIsNetworkError(false);
-        const response = await axios.get(`http://127.0.0.1:8000/api/trips/${tripId}/calculate_route/`, config);
+        const response = await axios.get(`https://eld-log-generator.onrender.com/api/trips/${tripId}/calculate_route/`, config);
         setRouteData(response.data.route);
         setEldLogs(response.data.eld_logs);
         console.log('Route Data:', response.data.route); // Debug route data
