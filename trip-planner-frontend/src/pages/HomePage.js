@@ -66,7 +66,7 @@ function HomePage() {
                 maxWidth: 600,
               }}
             >
-              Discover the best routes and schedules with Trip Planner’s smart technology. Start your journey today and make every mile count! I.e Location: New York, Boston, Dever, CO, etc.
+              Discover the best routes and schedules with Trip Planner’s smart technology. Start your journey today and make every mile count! I.e Location: New York, Boston, Denver, CO, etc.
             </Typography>
           </Box>
 
