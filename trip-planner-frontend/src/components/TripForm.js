@@ -20,15 +20,15 @@ function TripForm({ onTripCreated }) {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+  
     const config = {
       timeout: 10000, // 10 seconds timeout
     };
     let retries = 3;
-
+  
     while (retries > 0) {
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/trips/', {
+        const response = await axios.post('https://eld-log-generator.onrender.com/api/trips/', {
           ...formData,
           cycle_hours_used: parseFloat(formData.cycle_hours_used) || 0,
         }, config);
